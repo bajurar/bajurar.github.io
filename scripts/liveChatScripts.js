@@ -26,7 +26,7 @@ function loadIFrame() {
 		}
 	}
 	else {
-		(setTimeout(loadIFrame(), 1000));
+		(setTimeout(loadIFrame(), 5000));
 	}
 }
 
