@@ -4,6 +4,7 @@ var emotes = {};
 var twitchApiLoaded = false;
 
 function loadIFrame() {
+	if(twitchApiLoaded){
 	let searchParams = new URLSearchParams(window.location.search);
 	if(searchParams.has('v')){
 		var videoID = searchParams.get('v');
@@ -22,6 +23,10 @@ function loadIFrame() {
 			});
 			observer.observe(document.getElementById('live-chat-iframe').contentWindow.document.querySelector('#item-offset'), { childList: true, subtree: true });
 			});
+		}
+	}
+	else {
+		(setTimeout(loadIFrame(), 1000));
 	}
 }
 
