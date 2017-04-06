@@ -43,20 +43,20 @@ $(document).ready(function() {
 	loadIFrame();
 });
 
-function addEmotes(spanObj) {
-	var wordsArray = $(spanObj.html().split(" "));
-	wordsArray.each(function(i, word){
-		if(word in emotes) {
-			var imgHtml = '<img class="twitch-emote" src="' + template['small'].replace('{image_id}', emotes[word].image_id) + '" />';
-			if(i===0){
-				spanObj.html(spanObj.html().replace(word+" ", imgHtml + " "));
-			}
-			else if(i===wordsArray.length-1){				
-				spanObj.html(spanObj.html().replace(" "+word, " " +imgHtml));
-			}
-			else {
-				spanObj.html(spanObj.html().replace(" "+word+" ", " " +imgHtml+ " "));				
-			}
-		}
-	});
-}
+// function addEmotes(spanObj) {
+	// var wordsArray = $(spanObj.html().split(" "));
+	// wordsArray.each(function(i, word){
+		// if(word in emotes) {
+			// var imgHtml = '<img class="twitch-emote" src="' + template['small'].replace('{image_id}', emotes[word].image_id) + '" />';
+			// if(i===0){
+				// spanObj.html(spanObj.html().replace(word+" ", imgHtml + " "));
+			// }
+			// else if(i===wordsArray.length-1){				
+				// spanObj.html(spanObj.html().replace(" "+word, " " +imgHtml));
+			// }
+			// else {
+				// spanObj.html(spanObj.html().replace(" "+word+" ", " " +imgHtml+ " "));				
+			// }
+		// }
+	// });
+// }
