@@ -28,10 +28,10 @@ function addEmotes(spanObj) {
 	wordsArray.each(function(i, word){
 		if(word in emotes) {
 			var imgHtml = '<img class="twitch-emote" src="' + template['small'].replace('{image_id}', iemotes[word].image_id) + '" />';
-			if(i==0){
+			if(i===0){
 				spanObj.html(spanObj.html().replace(word+" ", imgHtml + " "));
 			}
-			else if(i==wordsArray.length-1){				
+			else if(i===wordsArray.length-1){				
 				spanObj.html(spanObj.html().replace(" "+word, " " +imgHtml));
 			}
 			else {
@@ -39,5 +39,4 @@ function addEmotes(spanObj) {
 			}
 		}
 	});
-});
-
+}
