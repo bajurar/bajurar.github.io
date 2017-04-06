@@ -11,4 +11,4 @@ function loadIFrame() {
 
 $(document).ready(function() {
 	loadIFrame();
-}
+});
