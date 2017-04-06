@@ -5,7 +5,7 @@ function loadIFrame() {
 	if(searchParams.has('v')){
 		var videoID = searchParams.get('v');
 		var url = 'https://www.youtube.com/live_chat?v='+ videoID + '&embed_domain=' + domain;
-		 $("#live-chat-iframe").attr("src", "newwebpage.html");
+		 $("#live-chat-iframe").attr("src", url);
 	}
 }
 
