@@ -16,7 +16,8 @@ function loadIFrame() {
 			 mutations.forEach(function(mutation) {
 			   for (var i = 0; i < mutation.addedNodes.length; i++)
 				 if($(mutation.addedNodes[i]).prop('tagName')=='YT-LIVE-CHAT-TEXT-MESSAGE-RENDERER'){
-					console.log($(mutation.addedNodes[i]));
+					console.log($(mutation.addedNodes[i]).find('#message'));
+					addEmotes($(mutation.addedNodes[i]).find('#message'));
 					
 				 }
 			 })
@@ -26,7 +27,7 @@ function loadIFrame() {
 		}
 	}
 	else {
-		(setTimeout(loadIFrame(), 5000));
+		(setTimeout(loadIFrame, 5000));
 	}
 }
 
@@ -43,20 +44,20 @@ $(document).ready(function() {
 	loadIFrame();
 });
 
-// function addEmotes(spanObj) {
-	// var wordsArray = $(spanObj.html().split(" "));
-	// wordsArray.each(function(i, word){
-		// if(word in emotes) {
-			// var imgHtml = '<img class="twitch-emote" src="' + template['small'].replace('{image_id}', emotes[word].image_id) + '" />';
-			// if(i===0){
-				// spanObj.html(spanObj.html().replace(word+" ", imgHtml + " "));
-			// }
-			// else if(i===wordsArray.length-1){				
-				// spanObj.html(spanObj.html().replace(" "+word, " " +imgHtml));
-			// }
-			// else {
-				// spanObj.html(spanObj.html().replace(" "+word+" ", " " +imgHtml+ " "));				
-			// }
-		// }
-	// });
-// }
+ function addEmotes(spanObj) {
+	 var wordsArray = $(spanObj.html().split(" "));
+	 wordsArray.each(function(i, word){
+		 if(word in emotes) {
+			 var imgHtml = '<img class="twitch-emote" src="' + template['small'].replace('{image_id}', emotes[word].image_id) + '" />';
+			 if(i===0){
+				 spanObj.html(spanObj.html().replace(word+" ", imgHtml + " "));
+			 }
+			 else if(i===wordsArray.length-1){				
+				 spanObj.html(spanObj.html().replace(" "+word, " " +imgHtml));
+			 }
+			 else {
+				 spanObj.html(spanObj.html().replace(" "+word+" ", " " +imgHtml+ " "));				
+			 }
+		 }
+	 });
+ }
